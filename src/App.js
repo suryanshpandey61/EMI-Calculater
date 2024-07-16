@@ -31,14 +31,27 @@ function App() {
 
      let x = Math.pow(rate+1,duration);
 
-     const emiValue = (loanAmount*rate*x)/(x-1);
-     const totalPaymentValue = emiValue*duration;
-     const totalIntrestValue = totalPaymentValue-loanAmount;
+     //validation 
+      if(loanAmount > 0 || intrestRate > 0 || loanTerm >0){
+
+      const emiValue = (loanAmount*rate*x)/(x-1);
+      const totalPaymentValue = emiValue*duration;
+      const totalIntrestValue = totalPaymentValue-loanAmount;
 
      
-     setEmi(emiValue.toFixed(2))
-     setTotalPayment(totalPaymentValue.toFixed(2));
-     setTotalIntrest(totalIntrestValue.toFixed(2));
+      setEmi(emiValue.toFixed(2))
+      setTotalPayment(totalPaymentValue.toFixed(2));
+      setTotalIntrest(totalIntrestValue.toFixed(2));
+    }
+
+    else {
+      setEmi("0");
+      setLoanAmount("0");
+      setTotalIntrest("0");
+      setTotalPayment("0");
+    }
+
+     
      
   }
 
